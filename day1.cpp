@@ -11,6 +11,7 @@ void sort(vector<int> &list);
 
 
 int main() {
+    //Part 1
     cout << "Hello World\n";
     vector<int> list1(0), list2(0);
     makeLists("input.txt", list1, list2);
@@ -22,6 +23,17 @@ int main() {
     }
     cout << "The summed distance is: ";
     cout << distance;
+    //Part 2
+    int similarityScore = 0;
+    for (int i = 0; i < list1.size(); i++) {
+        int count = 0;
+        for (int j = 0; list2[j] <= list1[i]; j++) {
+            if (list2[j] == list1[i]) count++;
+        }
+        similarityScore += list1[i] * count;
+    }
+    cout << "\nThe similarityScore is: ";
+    cout << similarityScore;
     return 0;
 }
 
